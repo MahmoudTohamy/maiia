@@ -39,7 +39,7 @@ const AppointmentsPage = () => {
         </p>
       </Section>
       <AllTasks className="goals" />
-      <div className="structurePage">
+      <div className="structurePage" datacy="formContainer">
         <Section
           name="appointment-form"
           title="Appointment Form"
