@@ -11,4 +11,19 @@ describe('Timeslots page', () => {
     cy.pick('timeslot-list').should('be.visible');
     cy.pick('timeslot-list').get('.timeslot-item').should('have.length', 30);
   });
+  it('Test GET time slots API', () => {
+    cy.request('api/timeslots')
+      .should((response) => {
+        expect(response.status).to.be.eq(200);
+      })
+      .its('body')
+      .each((value) =>
+        expect(value).to.have.all.keys(
+          'id',
+          'practitionerId',
+          'endDate',
+          'startDate',
+        ),
+      );
+  });
 });
